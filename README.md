@@ -108,7 +108,7 @@ bedtime-story-webapp/
 |----------|-------------|----------|---------|
 | `OPENAI_API_KEY` | Your OpenAI API key | Yes | - |
 | `TTS_VOICE` | TTS voice selection | No | `alloy` |
-| `AI_MODEL` | AI model for story generation | No | `gpt-4o-mini` |
+| `AI_MODEL` | TTS voice selection | No | `gpt-4o-mini` |
 
 ### Available TTS Voices
 
@@ -211,4 +211,4 @@ If you encounter any issues or have questions:
 
 **Made with ❤️ for families around the world**
 
-*Every story is a new adventure waiting to be discovered.* 
+*Every story is a new adventure waiting to be discovered.*
