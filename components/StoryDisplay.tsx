@@ -17,6 +17,20 @@ export function StoryDisplay({ story, onGenerateNew }: StoryDisplayProps) {
   const audioRef = useRef<HTMLAudioElement>(null)
   const [isAudioLoaded, setIsAudioLoaded] = useState(false)
 
+  // Helper function to display language names
+  const getLanguageDisplay = (languageCode?: string) => {
+    const languages: { [key: string]: string } = {
+      'en': '🇺🇸 English',
+      'fr': '🇫🇷 French',
+      'de': '🇩🇪 German',
+      'es': '🇪🇸 Spanish',
+      'ja': '🇯🇵 Japanese',
+      'ar': '🇸🇦 Arabic',
+      'ur': '🇵🇰 Urdu'
+    }
+    return languages[languageCode || 'en'] || '🇺🇸 English'
+  }
+
   // Parse story content into pages
   const storyPages: StoryPage[] = story.content
     .split(/<h2>Page \d+<\/h2>/)
@@ -108,6 +122,7 @@ export function StoryDisplay({ story, onGenerateNew }: StoryDisplayProps) {
         
         <div className="flex flex-wrap justify-center gap-4 text-sm text-night-600">
           <span>Age: {story.age}</span>
+          <span>Language: {getLanguageDisplay(story.language)}</span>
           {story.storyType && <span>Type: {story.storyType}</span>}
           {story.character && <span>Character: {story.character}</span>}
           {story.endingType && <span>Ending: {story.endingType}</span>}

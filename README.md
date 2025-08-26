@@ -5,10 +5,11 @@ A magical web application that generates age-appropriate bedtime stories using A
 ## ✨ Features
 
 - **AI Story Generation**: Create unique stories tailored to your child's age
+- **Multi-Language Support**: Stories in 7 languages (English, French, German, Spanish, Japanese, Arabic, Urdu)
 - **AI-Generated Illustrations**: DALL-E creates custom images for each story
 - **Age-Appropriate Content**: Stories automatically adjust vocabulary and complexity
 - **Text-to-Speech Audio**: Listen to stories with high-quality TTS
-- **Customizable Options**: Choose story type, characters, endings, and lessons
+- **Customizable Options**: Choose story type, characters, endings, lessons, and language
 - **Beautiful UI**: Clean, family-friendly interface with smooth animations
 - **Mobile Responsive**: Works perfectly on all devices
 - **Accessibility**: ARIA labels, keyboard navigation, and screen reader support
@@ -118,6 +119,16 @@ bedtime-story-webapp/
 - `alloy` - **Neutral & balanced** - Good all-around voice
 - `onyx` - **Deep & dramatic** - Perfect for adventure stories
 - `shimmer` - **Soft & gentle** - Ideal for lullabies and soothing stories
+
+### Supported Languages
+
+- 🇺🇸 **English** - Default language with rich vocabulary
+- 🇫🇷 **French** - Beautiful, melodic storytelling
+- 🇩🇪 **German** - Clear, structured narratives
+- 🇪🇸 **Spanish** - Warm, expressive stories
+- 🇯🇵 **Japanese** - Gentle, respectful storytelling
+- 🇸🇦 **Arabic** - Rich cultural narratives
+- 🇵🇰 **Urdu** - Poetic, traditional stories
 
 ## 🎨 Customization
 

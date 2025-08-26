@@ -139,6 +139,7 @@ This document tracks all changes, updates, and enhancements made to the Bedtime 
 - ✅ AI-generated story illustrations - DALL-E creates custom images for each story
 - ✅ Visual story enhancement - images help kids imagine and understand the story
 - ✅ **V1.0.0 Tagged and Branched** - Stable release point for future development
+- ✅ **Multi-Language Support** - Stories in 7 languages (English, French, German, Spanish, Japanese, Arabic, Urdu)
 
 ### Version 0.1.0
 - Initial release - no previous versions to compare

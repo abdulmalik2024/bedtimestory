@@ -128,6 +128,30 @@ export function StoryForm({
         {/* Advanced Options */}
         {showAdvanced && (
           <div className="space-y-6 pt-4 border-t border-night-100">
+            {/* Language Selection */}
+            <div>
+              <label htmlFor="language" className="block text-sm font-medium text-night-700 mb-2">
+                Story Language
+              </label>
+              <select
+                {...register('language')}
+                id="language"
+                className="story-input"
+                defaultValue="en"
+              >
+                <option value="en">🇺🇸 English (Default)</option>
+                <option value="fr">🇫🇷 French</option>
+                <option value="de">🇩🇪 German</option>
+                <option value="es">🇪🇸 Spanish</option>
+                <option value="ja">🇯🇵 Japanese</option>
+                <option value="ar">🇸🇦 Arabic</option>
+                <option value="ur">🇵🇰 Urdu</option>
+              </select>
+              <p className="mt-1 text-xs text-night-500">
+                Choose the language for your story
+              </p>
+            </div>
+
             {/* Story Type */}
             <div>
               <label htmlFor="storyType" className="block text-sm font-medium text-night-700 mb-2">
