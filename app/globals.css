@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-night-50 to-story-50 min-h-screen;
+  }
+}
+
+@layer components {
+  .story-card {
+    @apply bg-white rounded-2xl shadow-lg border border-night-100 p-6 hover:shadow-xl transition-all duration-300;
+  }
+  
+  .story-input {
+    @apply w-full px-4 py-3 border border-night-200 rounded-lg focus:ring-2 focus:ring-story-500 focus:border-transparent transition-all duration-200;
+  }
+  
+  .story-button {
+    @apply bg-story-500 hover:bg-story-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95;
+  }
+  
+  .story-button-secondary {
+    @apply bg-night-100 hover:bg-night-200 text-night-700 font-semibold py-3 px-6 rounded-lg transition-all duration-200;
+  }
+  
+  .story-text {
+    @apply font-story text-lg leading-relaxed text-night-800;
+  }
+  
+  .story-heading {
+    @apply font-story text-2xl font-bold text-story-700 mb-4;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+} 
