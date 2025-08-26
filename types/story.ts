@@ -4,6 +4,7 @@ export interface StoryFormData {
   character?: string
   endingType?: string
   lesson?: string
+  voice?: string
 }
 
 export interface Story {
@@ -15,8 +16,10 @@ export interface Story {
   character?: string
   endingType?: string
   lesson?: string
+  voice?: string
   createdAt: Date
   audioUrl?: string
+  imageUrl?: string
 }
 
 export interface StoryPage {

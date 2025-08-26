@@ -5,6 +5,7 @@ A magical web application that generates age-appropriate bedtime stories using A
 ## ✨ Features
 
 - **AI Story Generation**: Create unique stories tailored to your child's age
+- **AI-Generated Illustrations**: DALL-E creates custom images for each story
 - **Age-Appropriate Content**: Stories automatically adjust vocabulary and complexity
 - **Text-to-Speech Audio**: Listen to stories with high-quality TTS
 - **Customizable Options**: Choose story type, characters, endings, and lessons
@@ -71,7 +72,7 @@ A magical web application that generates age-appropriate bedtime stories using A
 
 - **Frontend**: Next.js 14, React 18, TypeScript
 - **Styling**: TailwindCSS with custom design system
-- **AI Integration**: OpenAI GPT-4 and TTS APIs
+- **AI Integration**: OpenAI GPT-4, TTS, and DALL-E APIs
 - **Forms**: React Hook Form with validation
 - **Icons**: Lucide React
 - **Audio**: HTML5 Audio API with custom controls
@@ -112,12 +113,11 @@ bedtime-story-webapp/
 
 ### Available TTS Voices
 
-- `alloy` - Neutral, balanced voice
-- `echo` - Warm, friendly voice
-- `fable` - Storytelling voice
-- `onyx` - Deep, authoritative voice
-- `nova` - Bright, energetic voice
-- `shimmer` - Soft, gentle voice
+- `fable` - **Perfect for storytelling** (Default) - Designed for narratives
+- `echo` - **Warm & friendly** - Great for children, very approachable
+- `alloy` - **Neutral & balanced** - Good all-around voice
+- `onyx` - **Deep & dramatic** - Perfect for adventure stories
+- `shimmer` - **Soft & gentle** - Ideal for lullabies and soothing stories
 
 ## 🎨 Customization
 

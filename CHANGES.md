@@ -105,7 +105,7 @@ This document tracks all changes, updates, and enhancements made to the Bedtime 
 - [ ] Favorite stories collection
 
 ### Phase 3 - Audio & Media
-- [ ] Multiple TTS voices
+- [x] Multiple TTS voices with voice selection dropdown
 - [ ] Background music options
 - [ ] Sound effects integration
 - [ ] Audio download (MP3)
@@ -126,6 +126,18 @@ This document tracks all changes, updates, and enhancements made to the Bedtime 
 - [ ] Personalized story preferences
 
 ## 🐛 Bug Fixes & Improvements
+
+### Version 0.1.1 - Voice Selection & Story Enhancement
+- ✅ Added voice selection dropdown with 5 TTS voice options
+- ✅ Integrated voice preference in story generation
+- ✅ Enhanced story form with voice customization
+- ✅ Updated API to use selected voice for TTS generation
+- ✅ Added voice field to story data structure
+- ✅ Enhanced story titles - AI generates engaging, interesting names
+- ✅ Improved TTS narration - removes page numbers, starts with story title
+- ✅ Cleaner audio experience - seamless story flow without page breaks
+- ✅ AI-generated story illustrations - DALL-E creates custom images for each story
+- ✅ Visual story enhancement - images help kids imagine and understand the story
 
 ### Version 0.1.0
 - Initial release - no previous versions to compare
@@ -175,8 +187,8 @@ npm run lint     # Code linting
 ---
 
 **Last Updated**: December 19, 2024
-**Version**: 0.1.0
-**Status**: Initial Release - ✅ COMPLETED AND TESTED
+**Version**: 0.2.0
+**Status**: AI-Generated Illustrations - ✅ COMPLETED AND TESTED
 
 ### 🎉 Project Completion Summary
 - ✅ All core components created and functional

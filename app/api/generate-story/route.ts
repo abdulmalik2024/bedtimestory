@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json()
-    const { age, storyType, character, endingType, lesson } = body
+    const { age, storyType, character, endingType, lesson, voice } = body
 
     // Validate required fields
     if (!age || age < 1 || age > 17) {
@@ -35,8 +35,19 @@ export async function POST(request: NextRequest) {
 - Include a clear moral lesson
 - Use warm, comforting language perfect for bedtime
 
+IMPORTANT: Start your story with an engaging title on the first line, then begin the story content.
 Always format your response with exactly 3 pages using <h2>Page 1</h2>, <h2>Page 2</h2>, <h2>Page 3</h2> tags.
-End with a line that starts with "Lesson:" followed by the moral of the story.`
+End with a line that starts with "Lesson:" followed by the moral of the story.
+
+Example format:
+[Engaging Story Title]
+<h2>Page 1</h2>
+[Story content...]
+<h2>Page 2</h2>
+[Story content...]
+<h2>Page 3</h2>
+[Story content...]
+Lesson: [moral of the story]`
 
     const userPrompt = `Create a bedtime story for a ${age}-year-old child.
 ${storyType ? `Story type: ${storyType}` : ''}
@@ -65,26 +76,56 @@ Requirements:
 
     const storyContent = completion.choices[0]?.message?.content || ''
 
+    // Extract title from the first line (before any HTML tags)
+    const title = storyContent.split('\n')[0].replace(/<[^>]*>/g, '').trim()
+
+    // Generate image using DALL-E
+    let imageUrl = ''
+    try {
+      // Create a prompt for the image based on the story
+      const imagePrompt = `Create a beautiful, child-friendly illustration for a bedtime story titled "${title}". 
+      The image should be warm, gentle, and age-appropriate for a ${age}-year-old child. 
+      Use soft, dreamy colors and a magical, comforting style. 
+      Make it suitable for bedtime viewing - no scary elements, just wonder and imagination.`
+      
+      const imageResponse = await openai.images.generate({
+        model: "dall-e-3",
+        prompt: imagePrompt,
+        size: "1024x1024",
+        quality: "standard",
+        n: 1,
+      })
+      
+      imageUrl = imageResponse.data?.[0]?.url || ''
+    } catch (imageError) {
+      console.warn('Image generation failed:', imageError)
+      // Continue without image if DALL-E fails
+    }
+
     // Generate audio using TTS
     let audioUrl = ''
     try {
+      // Clean story content for TTS: remove HTML tags and page numbers, start with title
+      const cleanStoryForTTS = storyContent
+        .replace(/<[^>]*>/g, '') // Remove HTML tags
+        .replace(/Page \d+/g, '') // Remove "Page 1", "Page 2", etc.
+        .replace(/\n\s*\s*\n/g, '\n') // Clean up extra line breaks
+        .trim()
+      
       const audioResponse = await openai.audio.speech.create({
         model: "tts-1",
-        voice: "alloy",
-        input: storyContent.replace(/<[^>]*>/g, ''), // Remove HTML tags for TTS
+        voice: voice || process.env.TTS_VOICE || "fable",
+        input: cleanStoryForTTS,
       })
 
-      // Convert the audio response to base64 for demo purposes
-      // In production, you'd save this to a file storage service
-      const audioBuffer = Buffer.from(await audioResponse.arrayBuffer())
-      audioUrl = `data:audio/mp3;base64,${audioBuffer.toString('base64')}`
-    } catch (audioError) {
-      console.warn('Audio generation failed:', audioError)
-      // Continue without audio if TTS fails
-    }
-
-    // Extract title from first few words
-    const title = storyContent.split('\n')[0].replace(/<[^>]*>/g, '').trim()
+          // Convert the audio response to base64 for demo purposes
+    // In production, you'd save this to a file storage service
+    const audioBuffer = Buffer.from(await audioResponse.arrayBuffer())
+    audioUrl = `data:audio/mp3;base64,${audioBuffer.toString('base64')}`
+  } catch (audioError) {
+    console.warn('Audio generation failed:', audioError)
+    // Continue without audio if TTS fails
+  }
 
     const story = {
       id: Date.now().toString(),
@@ -95,8 +136,10 @@ Requirements:
       character,
       endingType,
       lesson,
+      voice: voice || 'fable',
       createdAt: new Date(),
       audioUrl,
+      imageUrl,
     }
 
     return NextResponse.json(story)

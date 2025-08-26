@@ -179,6 +179,28 @@ export function StoryForm({
               </select>
             </div>
 
+            {/* Voice Selection */}
+            <div>
+              <label htmlFor="voice" className="block text-sm font-medium text-night-700 mb-2">
+                Story Voice
+              </label>
+              <select
+                {...register('voice')}
+                id="voice"
+                className="story-input"
+                defaultValue="fable"
+              >
+                <option value="fable">🎭 Fable - Perfect for storytelling (Default)</option>
+                <option value="echo">👨‍👩‍👧‍👦 Echo - Warm & friendly for children</option>
+                <option value="alloy">⚖️ Alloy - Neutral & balanced</option>
+                <option value="onyx">🎪 Onyx - Deep & dramatic for adventures</option>
+                <option value="shimmer">✨ Shimmer - Soft & gentle for lullabies</option>
+              </select>
+              <p className="mt-1 text-xs text-night-500">
+                Choose the voice that will narrate your story
+              </p>
+            </div>
+
             {/* Lesson Learned */}
             <div>
               <label htmlFor="lesson" className="block text-sm font-medium text-night-700 mb-2">

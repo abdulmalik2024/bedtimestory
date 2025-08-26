@@ -93,6 +93,19 @@ export function StoryDisplay({ story, onGenerateNew }: StoryDisplayProps) {
       {/* Story Header */}
       <div className="story-card text-center">
         <h1 className="story-heading text-3xl mb-4">{story.title}</h1>
+        
+        {/* Story Illustration */}
+        {story.imageUrl && (
+          <div className="mb-6">
+            <img 
+              src={story.imageUrl} 
+              alt={`Illustration for ${story.title}`}
+              className="mx-auto rounded-lg shadow-lg max-w-full h-auto max-h-96 object-cover"
+              style={{ maxWidth: '500px' }}
+            />
+          </div>
+        )}
+        
         <div className="flex flex-wrap justify-center gap-4 text-sm text-night-600">
           <span>Age: {story.age}</span>
           {story.storyType && <span>Type: {story.storyType}</span>}
