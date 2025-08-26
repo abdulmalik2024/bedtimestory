@@ -245,17 +245,22 @@ export function StoryForm({
         <button
           type="submit"
           disabled={isGenerating}
-          className="story-button w-full flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="story-button w-full flex items-center justify-center space-x-4 disabled:opacity-50 disabled:cursor-not-allowed py-6 px-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 animate-pulse"
+          style={{
+            fontSize: '1.25rem',
+            fontWeight: '600',
+            textAlign: 'center'
+          }}
         >
           {isGenerating ? (
             <>
-              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-              <span>Generating Story...</span>
+              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
+              <span style={{ fontSize: '1.25rem', fontWeight: '600' }}>Generating Story...</span>
             </>
           ) : (
             <>
-              <Sparkles className="w-5 h-5" />
-              <span>Generate Story</span>
+              <Sparkles className="w-6 h-6 animate-bounce" />
+              <span style={{ fontSize: '1.25rem', fontWeight: '600' }}>Generate Story</span>
             </>
           )}
         </button>
