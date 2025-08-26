@@ -19,16 +19,16 @@ export function StoryDisplay({ story, onGenerateNew }: StoryDisplayProps) {
 
   // Helper function to display language names
   const getLanguageDisplay = (languageCode?: string) => {
-    const languages: { [key: string]: string } = {
-      'en': '🇺🇸 English',
-      'fr': '🇫🇷 French',
-      'de': '🇩🇪 German',
-      'es': '🇪🇸 Spanish',
-      'ja': '🇯🇵 Japanese',
-      'ar': '🇸🇦 Arabic',
-      'ur': '🇵🇰 Urdu'
+    const languages: { [key: string]: { name: string; flag: string } } = {
+      'en': { name: 'English', flag: '🇺🇸' },
+      'fr': { name: 'French', flag: '🇫🇷' },
+      'de': { name: 'German', flag: '🇩🇪' },
+      'es': { name: 'Spanish', flag: '🇪🇸' },
+      'ja': { name: 'Japanese', flag: '🇯🇵' },
+      'ar': { name: 'Arabic', flag: '🇸🇦' },
+      'ur': { name: 'Urdu', flag: '🇵🇰' }
     }
-    return languages[languageCode || 'en'] || '🇺🇸 English'
+    return languages[languageCode || 'en'] || languages['en']
   }
 
   // Parse story content into pages
@@ -122,7 +122,7 @@ export function StoryDisplay({ story, onGenerateNew }: StoryDisplayProps) {
         
         <div className="flex flex-wrap justify-center gap-4 text-sm text-night-600">
           <span>Age: {story.age}</span>
-          <span>Language: {getLanguageDisplay(story.language)}</span>
+          <span>Language: {getLanguageDisplay(story.language).name}</span>
           {story.storyType && <span>Type: {story.storyType}</span>}
           {story.character && <span>Character: {story.character}</span>}
           {story.endingType && <span>Ending: {story.endingType}</span>}

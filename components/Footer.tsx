@@ -1,47 +1,80 @@
 export function Footer() {
   return (
-    <footer className="bg-night-800 text-white mt-20">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="text-xl font-bold text-story-300 mb-4">StoryTime</h3>
-            <p className="text-night-300 mb-4 max-w-md">
-              Creating magical bedtime stories for families using AI technology. 
-              Every story is crafted to be age-appropriate, engaging, and meaningful.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-night-300 hover:text-story-300 transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-night-300 hover:text-story-300 transition-colors">
-                Terms of Service
-              </a>
+    <footer className="bg-[#0a0a0a]/80 backdrop-blur-sm border-t border-[#2a2a2a] mt-16">
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid md:grid-cols-4 gap-8">
+          {/* Brand Section */}
+          <div className="md:col-span-2">
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="w-8 h-8 bg-gradient-to-br from-[#2563eb] to-[#3b82f6] rounded-lg flex items-center justify-center">
+                <span className="text-white text-sm">🌙</span>
+              </div>
+              <h3 className="text-xl font-normal text-[#f8fafc]">
+                Story Time Magic
+              </h3>
             </div>
+            <p className="text-[#94a3b8] text-sm leading-relaxed max-w-md">
+              Creating magical bedtime experiences with AI-powered stories, beautiful illustrations, and soothing narration for children of all ages.
+            </p>
           </div>
           
+          {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold text-story-300 mb-4">Features</h4>
-            <ul className="space-y-2 text-night-300">
-              <li>AI Story Generation</li>
-              <li>Age-Appropriate Content</li>
-              <li>Text-to-Speech Audio</li>
-              <li>Customizable Stories</li>
+            <h4 className="text-lg font-medium text-[#f1f5f9] mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+              <li>
+                <a href="#" className="text-[#94a3b8] hover:text-[#f1f5f9] transition-colors duration-200 text-sm">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-[#94a3b8] hover:text-[#f1f5f9] transition-colors duration-200 text-sm">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-[#94a3b8] hover:text-[#f1f5f9] transition-colors duration-200 text-sm">
+                  Features
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-[#94a3b8] hover:text-[#f1f5f9] transition-colors duration-200 text-sm">
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
           
+          {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold text-story-300 mb-4">Contact</h4>
-            <ul className="space-y-2 text-night-300">
-              <li>support@storytime.ai</li>
-              <li>Feedback</li>
-              <li>Bug Reports</li>
-              <li>Feature Requests</li>
+            <h4 className="text-lg font-medium text-[#f1f5f9] mb-4">Contact</h4>
+            <ul className="space-y-2">
+              <li className="flex items-center space-x-2 text-[#94a3b8] text-sm">
+                <span>📧</span>
+                <span>hello@storytimemagic.app</span>
+              </li>
+              <li className="flex items-center space-x-2 text-[#94a3b8] text-sm">
+                <span>🌐</span>
+                <span>www.storytimemagic.app</span>
+              </li>
             </ul>
           </div>
         </div>
         
-        <div className="border-t border-night-700 mt-8 pt-8 text-center text-night-400">
-          <p>&copy; 2024 StoryTime. All rights reserved. Made with ❤️ for families.</p>
+        {/* Bottom Bar */}
+        <div className="border-t border-[#2a2a2a] mt-8 pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-[#94a3b8] text-sm">
+              © 2024 Story Time Magic. All rights reserved.
+            </p>
+            <div className="flex items-center space-x-4 mt-4 md:mt-0">
+              <span className="text-[#94a3b8] text-sm">Made with ❤️ for children</span>
+              <div className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-[#2563eb] rounded-full"></span>
+                <span className="text-[#94a3b8] text-sm">AI Powered</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

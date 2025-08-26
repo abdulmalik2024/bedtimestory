@@ -77,17 +77,17 @@ export function StoryForm({
     <div className="max-w-2xl mx-auto">
       <form onSubmit={handleSubmit(onSubmit)} className="story-card space-y-6">
         <div className="text-center mb-6">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-story-400 to-story-600 rounded-full mb-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#2563eb] to-[#3b82f6] rounded-full mb-4 shadow-lg">
             <Sparkles className="w-8 h-8 text-white" />
           </div>
-          <h2 className="text-2xl font-bold text-night-800 mb-2">Create Your Story</h2>
-          <p className="text-night-600">Fill in the details below to generate a magical bedtime story</p>
+          <h2 className="text-2xl font-normal text-[#f8fafc] mb-2">Create Your Story</h2>
+          <p className="text-[#94a3b8]">Fill in the details below to generate a magical bedtime story with Story Time Magic</p>
         </div>
 
         {/* Age Input - Required */}
         <div>
-          <label htmlFor="age" className="block text-sm font-medium text-night-700 mb-2">
-            Child's Age <span className="text-red-500">*</span>
+          <label htmlFor="age" className="block text-sm font-medium text-[#cbd5e1] mb-2">
+            Child's Age <span className="text-red-400">*</span>
           </label>
           <input
             {...register('age', { 
@@ -102,15 +102,15 @@ export function StoryForm({
             className="story-input"
             placeholder="Enter age (1-17)"
           />
-          {errors.age && (
-            <p className="mt-1 text-sm text-red-600">{errors.age.message}</p>
-          )}
-          {age && (
-            <p className="mt-2 text-sm text-night-600 bg-night-50 p-3 rounded-lg">
-              <BookOpen className="inline w-4 h-4 mr-2" />
-              {getAgeDescription(age)}
-            </p>
-          )}
+                      {errors.age && (
+              <p className="mt-1 text-sm text-red-400">{errors.age.message}</p>
+            )}
+            {age && (
+              <p className="mt-2 text-sm text-[#94a3b8] bg-[#1e293b]/80 p-3 rounded-lg border border-[#475569]/50">
+                <BookOpen className="inline w-4 h-4 mr-2" />
+                {getAgeDescription(age)}
+              </p>
+            )}
         </div>
 
         {/* Advanced Options Toggle */}
@@ -118,7 +118,7 @@ export function StoryForm({
           <button
             type="button"
             onClick={() => setShowAdvanced(!showAdvanced)}
-            className="text-story-600 hover:text-story-700 text-sm font-medium flex items-center justify-center mx-auto"
+            className="text-[#60a5fa] hover:text-[#93c5fd] text-sm font-medium flex items-center justify-center mx-auto transition-colors duration-200"
           >
             {showAdvanced ? 'Hide' : 'Show'} Advanced Options
             <Lightbulb className={`ml-2 w-4 h-4 transition-transform ${showAdvanced ? 'rotate-180' : ''}`} />
@@ -127,12 +127,12 @@ export function StoryForm({
 
         {/* Advanced Options */}
         {showAdvanced && (
-          <div className="space-y-6 pt-4 border-t border-night-100">
+                      <div className="space-y-6 pt-4 border-t border-[#475569]">
             {/* Language Selection */}
             <div>
-              <label htmlFor="language" className="block text-sm font-medium text-night-700 mb-2">
-                Story Language
-              </label>
+                              <label htmlFor="language" className="block text-sm font-medium text-[#cbd5e1] mb-2">
+                  Story Language
+                </label>
               <select
                 {...register('language')}
                 id="language"
@@ -147,16 +147,16 @@ export function StoryForm({
                 <option value="ar">🇸🇦 Arabic</option>
                 <option value="ur">🇵🇰 Urdu</option>
               </select>
-              <p className="mt-1 text-xs text-night-500">
-                Choose the language for your story
-              </p>
+                              <p className="mt-1 text-xs text-[#64748b]">
+                  Choose the language for your story
+                </p>
             </div>
 
             {/* Story Type */}
             <div>
-              <label htmlFor="storyType" className="block text-sm font-medium text-night-700 mb-2">
-                Story Type
-              </label>
+                              <label htmlFor="storyType" className="block text-sm font-medium text-[#cbd5e1] mb-2">
+                  Story Type
+                </label>
               <select
                 {...register('storyType')}
                 id="storyType"
@@ -171,9 +171,9 @@ export function StoryForm({
 
             {/* Character */}
             <div>
-              <label htmlFor="character" className="block text-sm font-medium text-night-700 mb-2">
-                Main Character
-              </label>
+                              <label htmlFor="character" className="block text-sm font-medium text-[#cbd5e1] mb-2">
+                  Main Character
+                </label>
               <select
                 {...register('character')}
                 id="character"
@@ -188,9 +188,9 @@ export function StoryForm({
 
             {/* Ending Type */}
             <div>
-              <label htmlFor="endingType" className="block text-sm font-medium text-night-700 mb-2">
-                Ending Type
-              </label>
+                              <label htmlFor="endingType" className="block text-sm font-medium text-[#cbd5e1] mb-2">
+                  Ending Type
+                </label>
               <select
                 {...register('endingType')}
                 id="endingType"
@@ -205,9 +205,9 @@ export function StoryForm({
 
             {/* Voice Selection */}
             <div>
-              <label htmlFor="voice" className="block text-sm font-medium text-night-700 mb-2">
-                Story Voice
-              </label>
+                              <label htmlFor="voice" className="block text-sm font-medium text-[#cbd5e1] mb-2">
+                  Story Voice
+                </label>
               <select
                 {...register('voice')}
                 id="voice"
@@ -220,16 +220,16 @@ export function StoryForm({
                 <option value="onyx">🎪 Onyx - Deep & dramatic for adventures</option>
                 <option value="shimmer">✨ Shimmer - Soft & gentle for lullabies</option>
               </select>
-              <p className="mt-1 text-xs text-night-500">
-                Choose the voice that will narrate your story
-              </p>
+                              <p className="mt-1 text-xs text-[#64748b]">
+                  Choose the voice that will narrate your story
+                </p>
             </div>
 
             {/* Lesson Learned */}
             <div>
-              <label htmlFor="lesson" className="block text-sm font-medium text-night-700 mb-2">
-                Lesson Learned
-              </label>
+                              <label htmlFor="lesson" className="block text-sm font-medium text-[#cbd5e1] mb-2">
+                  Lesson Learned
+                </label>
               <textarea
                 {...register('lesson')}
                 id="lesson"
@@ -260,9 +260,9 @@ export function StoryForm({
           )}
         </button>
 
-        <div className="text-center text-sm text-night-500">
-          <p>✨ Each story is uniquely crafted for your child's age and preferences</p>
-        </div>
+                  <div className="text-center text-sm text-[#64748b]">
+            <p>✨ Each story is uniquely crafted for your child's age and preferences</p>
+          </div>
       </form>
     </div>
   )
