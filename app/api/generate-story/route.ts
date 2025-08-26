@@ -84,12 +84,40 @@ Requirements:
     // Generate image using DALL-E
     let imageUrl = ''
     try {
-      // Create a prompt for the image based on the story
+      // Create a sophisticated, age-appropriate image prompt based on story content and child's age
       const imagePrompt = `Create a beautiful, child-friendly illustration for a ${getLanguageName(language)} bedtime story titled "${title}". 
-      The image should be warm, gentle, and age-appropriate for a ${age}-year-old child. 
-      Use soft, dreamy colors and a magical, comforting style. 
-      Make it suitable for bedtime viewing - no scary elements, just wonder and imagination.
-      Consider cultural elements appropriate for ${getLanguageName(language)} storytelling.`
+
+STORY CONTEXT: ${storyContent.substring(0, 500)}...
+
+AGE-APPROPRIATE STYLE REQUIREMENTS for a ${age}-year-old child:
+
+${age <= 4 ? `
+• MINIMAL, CALMING DESIGN: Simple pastel backgrounds, large clear characters, minimal detail
+• SOFT, WHIMSICAL: Watercolor textures, rounded shapes, warm tones (pink, blue, yellow)
+• AVOID: Complex scenes, too many objects, overwhelming details` : age <= 7 ? `
+• STORYBOOK/CARTOON STYLE: Classic children's book illustration look
+• SOFT, WHIMSICAL: Watercolor or crayon-like textures, rounded shapes, warm tones
+• ANIMAL & NATURE: Cute animals in peaceful night settings with stars and fireflies` : age <= 10 ? `
+• DREAMY/FANTASY SCENES: Light sparkles, glowing moons, magical forests
+• STORYBOOK STYLE: Expressive characters, detailed but not overwhelming
+• SOFT COLOR PALETTE: Lavender, light blue, soft gold, warm pastels` : `
+• DREAMY/FANTASY SCENES: Rich magical elements with soothing colors
+• STORYBOOK STYLE: Detailed illustrations with emotional depth
+• SOPHISTICATED PALETTE: Lavender, light blue, soft gold, warm earth tones`}
+
+ARTISTIC REQUIREMENTS:
+• Use the story content above to create a scene that represents the story's essence
+• Choose colors that are soothing and not overstimulating (avoid harsh neon or high contrast)
+• Create a peaceful, magical atmosphere perfect for bedtime
+• Include cultural elements appropriate for ${getLanguageName(language)} storytelling
+• Ensure the image feels warm, gentle, and comforting
+• NO TEXT OR WRITING: Create a completely text-free image with no letters, numbers, words, or signs
+
+AVOID: Scary elements, dark shadows, harsh colors, overly complex scenes, or anything that could be frightening for bedtime viewing.
+
+CRITICAL: NO TEXT OR WRITING - Create a completely text-free image. Do not include any letters, numbers, words, signs, or written text of any kind. The image should be purely visual storytelling through illustrations only.
+
+Create an image that captures the magic and wonder of the story while being perfectly suited for a ${age}-year-old child's bedtime experience.`
       
       const imageResponse = await openai.images.generate({
         model: "dall-e-3",
